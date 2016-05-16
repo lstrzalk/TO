@@ -6,8 +6,10 @@ import java.util.Scanner;
  */
 public class SelectSize extends OrderStep {
     private Size size;
+    Scanner in;
     private ArrayList<Size> sizes;
-    public SelectSize() {
+    public SelectSize(Scanner in) {
+        this.in=in;
         sizes=new ArrayList<Size>();
         sizes.add(new Size(10,15));
         sizes.add(new Size(12,20));
@@ -15,7 +17,6 @@ public class SelectSize extends OrderStep {
         sizes.add(new Size(16,30));
         sizes.add(new Size(18,40));
         setSize();
-        getSize();
     }
 
     public ArrayList<Size> getSizes() {
@@ -29,11 +30,22 @@ public class SelectSize extends OrderStep {
             System.out.println(i+" "+s.showWithPrice());
             i++;
         }
-        int dim= in.nextInt();
-        size=sizes.get(dim);
+        int choose;
+        do{
+            choose=in.nextInt();
+            summarize();
+        }while (!validateData());
+        size=sizes.get(choose);
     }
 
-    public Size getSize() {
+    public Size getFields() {
         return size;
+    }
+    public String summarize(){
+        return size.showWithPrice();
+    }
+    public boolean validateData(){
+        System.out.println("Are you sure?");
+        return in.nextBoolean();
     }
 }

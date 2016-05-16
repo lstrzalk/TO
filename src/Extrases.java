@@ -39,6 +39,9 @@ public class Extrases implements Ingredient {
     public void add(Extras e){
         extrases.add(e);
     }
+    public void remove(int e){
+        extrases.remove(e);
+    }
     public Extras getExtras(int index){
         return extrases.get(index);
     }

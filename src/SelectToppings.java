@@ -1,25 +1,20 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by lstrzalk on 15.05.16.
  */
 public class SelectToppings extends OrderStep {
-    private Topping topping;
     private ArrayList<Topping> toppings;
-
-    public Topping getTopping() {
-        return topping;
-    }
-
+    Scanner in;
+    Topping topping;
     public ArrayList<Topping> getToppings() {
         return toppings;
     }
 
-    public void setTopping(Topping topping) {
-        this.topping = topping;
-    }
 
-    public SelectToppings() {
+    public SelectToppings(Scanner in) {
+        this.in=in;
         toppings=new ArrayList<Topping>();
         toppings.add(new Topping(1,"red"));
         toppings.add(new Topping(1,"white"));
@@ -30,8 +25,22 @@ public class SelectToppings extends OrderStep {
             System.out.println(i+" "+t.showWithPrice());
             i++;
         }
-        setTopping(toppings.get(in.nextInt()));
-        getTopping();
+        int choose;
+        do{
+            choose=in.nextInt();
+            summarize();
+        }while (!validateData());
+        topping=toppings.get(choose);
+    }
+    public Topping getFields(){
+        return topping;
+    }
+    public String summarize(){
+        return topping.showWithPrice();
+    }
+    public boolean validateData(){
+        System.out.println("Are you sure?");
+        return in.nextBoolean();
     }
 
 }

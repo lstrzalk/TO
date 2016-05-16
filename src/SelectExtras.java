@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class SelectExtras extends OrderStep {
     private Extrases extras;
     private Extrases choosenExtrases;
+    Scanner in;
+
 
     public Extrases getChoosenExtrases() {
         return choosenExtrases;
@@ -16,7 +18,8 @@ public class SelectExtras extends OrderStep {
         return extras;
     }
 
-    public SelectExtras() {
+    public SelectExtras(Scanner in) {
+        this.in = in;
         this.extras=new Extrases();
         this.choosenExtrases=new Extrases();
         extras.add(new Extras(2,"Pepperoni"));
@@ -25,14 +28,35 @@ public class SelectExtras extends OrderStep {
         extras.add(new Extras(2,"Mushrooms"));
         System.out.println("Select extras");
         System.out.println(extras.showWithPrice());
-        int temp=-1;
-        while (temp>-1){
-            temp=in.nextInt();
-            if(temp>-1){
-                choosenExtrases.add(choosenExtrases.getExtras(temp));
-
+        int temp;
+        do{
+            temp=-1;
+            System.out.println("Adding loop: Type -1 to exit loop");
+            while (temp>-1){
+                temp=in.nextInt();
+                if(temp>-1){
+                    choosenExtrases.add(extras.getExtras(temp));
+                }
             }
-        }
+            System.out.println("Removin loop: Type -1 to exit loop");
+            while (temp>-1){
+                temp=in.nextInt();
+                if(temp>-1){
+                    choosenExtrases.remove(temp);
+                }
+            }
+            summarize();
+        }while (!validateData());
+    }
+    public Extrases getFields() {
+        return choosenExtrases;
+    }
+    public String summarize(){
+        return choosenExtrases.showWithPrice();
+    }
+    public boolean validateData(){
+        System.out.println("Are you sure?");
+        return in.nextBoolean();
     }
 
 }

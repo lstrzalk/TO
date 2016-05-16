@@ -1,22 +1,29 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by lstrzalk on 15.05.16.
  */
-public class OrderStep {
+public abstract class OrderStep {
     private ArrayList<OrderStep> stepsOrder;
-    Scanner in = new Scanner(System.in);
-    Pizza pizza;
-
-    public OrderStep() {
-        this.stepsOrder.add(new SelectSize());
-        this.stepsOrder.add(new SelectDough());
-        this.stepsOrder.add(new SelectToppings());
-        this.stepsOrder.add(new SelectExtras());
+    public abstract Ingredient getFields();
+    public abstract boolean validateData();
+    public abstract String summarize();
+    public OrderStep getCurrent(){
+        return stepsOrder.get(stepsOrder.indexOf(this));
     }
-    public void summarize(){
-
+    public OrderStep getNext(){
+        if(stepsOrder.indexOf(this)+1<stepsOrder.size()){
+            return stepsOrder.get(stepsOrder.indexOf(this)+1);
+        }
+        else
+            return null;
+    }
+    public OrderStep getPrev(){
+        if(stepsOrder.indexOf(this)-1>=0){
+            return stepsOrder.get(stepsOrder.indexOf(this)-1);
+        }
+        else
+            return null;
     }
 
 }
