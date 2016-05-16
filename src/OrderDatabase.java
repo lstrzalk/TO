@@ -15,7 +15,7 @@ public class OrderDatabase {
         this.orders = new ArrayList<Pizza>();
     }
 
-    boolean addOrder(Pizza p){
+    boolean addOrder(){
         Scanner in = new Scanner(System.in);
         order.add(new SelectSize(in));
         order.add(new SelectDough(in));
@@ -23,14 +23,17 @@ public class OrderDatabase {
         order.add(new SelectToppings(in));
         for (OrderStep o:order){
             ingredients.add(o.getFields());
+            System.out.println(o.summarize());
         }
-        System.out.println("Are you sure?[0:1]");
+        pizza = new Pizza(ingredients);
+        System.out.println(pizza.show());
+        System.out.println("Are you sure?");
         if(in.nextBoolean()) {
-            pizza = new Pizza(ingredients);
             return true;
         }
-        else
+        else{
             return false;
+        }
     }
 
 }

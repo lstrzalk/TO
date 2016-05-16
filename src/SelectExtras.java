@@ -32,20 +32,21 @@ public class SelectExtras extends OrderStep {
         do{
             temp=-1;
             System.out.println("Adding loop: Type -1 to exit loop");
-            while (temp>-1){
+                do{
                 temp=in.nextInt();
                 if(temp>-1){
                     choosenExtrases.add(extras.getExtras(temp));
                 }
-            }
+            }while (temp>-1);
+            System.out.println(summarize());
             System.out.println("Removin loop: Type -1 to exit loop");
-            while (temp>-1){
+                do{
                 temp=in.nextInt();
                 if(temp>-1){
                     choosenExtrases.remove(temp);
                 }
-            }
-            summarize();
+            }while (temp>-1);
+            System.out.println(summarize());
         }while (!validateData());
     }
     public Extrases getFields() {

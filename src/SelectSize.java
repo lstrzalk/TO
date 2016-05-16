@@ -33,9 +33,9 @@ public class SelectSize extends OrderStep {
         int choose;
         do{
             choose=in.nextInt();
-            summarize();
+            size=sizes.get(choose);
+            System.out.println(summarize());
         }while (!validateData());
-        size=sizes.get(choose);
     }
 
     public Size getFields() {

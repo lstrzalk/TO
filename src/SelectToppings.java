@@ -28,9 +28,9 @@ public class SelectToppings extends OrderStep {
         int choose;
         do{
             choose=in.nextInt();
-            summarize();
+            topping=toppings.get(choose);
+            System.out.println(summarize());
         }while (!validateData());
-        topping=toppings.get(choose);
     }
     public Topping getFields(){
         return topping;

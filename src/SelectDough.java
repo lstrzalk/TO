@@ -33,9 +33,9 @@ public class SelectDough extends OrderStep {
         int choose;
         do{
             choose=in.nextInt();
-            summarize();
+            setDough(choose == 0 ? doughs.get(0):doughs.get(1));
+            System.out.println(summarize());
         }while (!validateData());
-        setDough(choose == 0 ? doughs.get(0):doughs.get(1));
     }
 
     public Dough getFields() {
