@@ -7,7 +7,7 @@ public abstract class OrderStep {
     private ArrayList<OrderStep> stepsOrder;
     public abstract Ingredient getFields();
     public abstract boolean validateData();
-    public abstract String summarize();
+    public abstract String summarize();/*
     public OrderStep getCurrent(){
         return stepsOrder.get(stepsOrder.indexOf(this));
     }
@@ -24,6 +24,6 @@ public abstract class OrderStep {
         }
         else
             return null;
-    }
+    }*/
 
 }

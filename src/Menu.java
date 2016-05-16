@@ -34,11 +34,4 @@ public class Menu {
     public Pizza getPizza(int index){
         return pizzas.get(index);
     }
-    public void showMenu(){
-        int i=0;
-        for(Pizza p:pizzas){
-            System.out.println(i+ " "+p.show());
-            i++;
-        }
-    }
 }

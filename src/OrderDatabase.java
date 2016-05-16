@@ -29,6 +29,7 @@ public class OrderDatabase {
         System.out.println(pizza.show());
         System.out.println("Are you sure?");
         if(in.nextBoolean()) {
+            orders.add(pizza);
             return true;
         }
         else{
