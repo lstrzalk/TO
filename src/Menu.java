@@ -7,15 +7,25 @@ public class Menu {
     private ArrayList<Pizza> pizzas;
     public Menu() {
         pizzas=new ArrayList<>();
-        ArrayList<Extras>e=new ArrayList<Extras>();
-        ArrayList<Extras>e2=new ArrayList<Extras>();
+        Extrases e=new Extrases();
+        Extrases e2=new Extrases();
         e.add(new Extras(2,"Pepperoni"));
         e.add(new Extras(2,"Cheese"));
-        pizzas.add(new Pizza(new Size(10,15),new Dough(2,true),new Topping(1,"red"),e));
+        ArrayList<Ingredient> i =new ArrayList<Ingredient>();
+        i.add(new Size(10,15));
+        i.add(new Dough(2,true));
+        i.add(new Topping(1,"red"));
+        i.add(e);
+        pizzas.add(new Pizza(i));
         e2.add(new Extras(2,"Ham"));
         e2.add(new Extras(2,"Cheese"));
         e2.add(new Extras(2,"Mushrooms"));
-        pizzas.add(new Pizza(new Size(14,25),new Dough(2,false),new Topping(1,"green"),e2));
+        ArrayList<Ingredient> i2 =new ArrayList<Ingredient>();
+        i.add(new Size(14,25));
+        i.add(new Dough(2,false));
+        i.add(new Topping(1,"green"));
+        i.add(e2);
+        pizzas.add(new Pizza(i2));
     }
 
     public ArrayList<Pizza> getBestSets(){

@@ -5,35 +5,34 @@ import java.util.Scanner;
  * Created by lstrzalk on 15.05.16.
  */
 public class SelectExtras extends OrderStep {
-    private ArrayList<Extras> extras;
-    private ArrayList<Extras> extrases;
+    private Extrases extras;
+    private Extrases choosenExtrases;
 
-    public ArrayList<Extras> getExtrases() {
-        return extrases;
+    public Extrases getChoosenExtrases() {
+        return choosenExtrases;
+    }
+
+    public Extrases getExtras() {
+        return extras;
     }
 
     public SelectExtras() {
-        extras=new ArrayList<Extras>();
+        this.extras=new Extrases();
+        this.choosenExtrases=new Extrases();
         extras.add(new Extras(2,"Pepperoni"));
         extras.add(new Extras(2,"cheese"));
         extras.add(new Extras(2,"Ham"));
         extras.add(new Extras(2,"Mushrooms"));
         System.out.println("Select extras");
-        int i=0;
-        for(Extras e:extras){
-            System.out.println(i+" extras: "+e.getExtr()+" price: "+e.getPrice());
-            i++;
-        }
+        System.out.println(extras.showWithPrice());
         int temp=-1;
         while (temp>-1){
             temp=in.nextInt();
             if(temp>-1){
-                extrases.add(extras.get(temp));
+                choosenExtrases.add(choosenExtrases.getExtras(temp));
 
             }
         }
-        getExtrases();
-
     }
 
 }

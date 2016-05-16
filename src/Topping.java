@@ -11,10 +11,14 @@ public class Topping implements Ingredient {
     }
 
     public String  getTopp() {
-
         return topp;
     }
-
+    public String show(){
+        return "Topping "+getTopp();
+    }
+    public String showWithPrice(){
+        return "Price "+getPrice()+" Topping "+getTopp();
+    }
     public float getPrice() {
         return price;
     }

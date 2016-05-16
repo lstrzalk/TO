@@ -11,11 +11,16 @@ public class Dough implements Ingredient {
     }
 
     public boolean isThin() {
-
         return thin;
     }
 
     public float getPrice() {
         return price;
+    }
+    public String show(){
+        return (isThin()==true?"Thin":"Fluffy");
+    }
+    public String showWithPrice(){
+        return "Price "+getPrice()+" Dough "+(isThin()==true?"Thin":"Fluffy");
     }
 }

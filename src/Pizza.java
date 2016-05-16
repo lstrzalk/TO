@@ -4,33 +4,26 @@ import java.util.ArrayList;
  * Created by lstrzalk on 15.05.16.
  */
 public class Pizza {
+    ArrayList<Ingredient> ingredients;
     private float price;
-    private Size size;
-    private Dough dough;
-    private Topping topping;
-    private ArrayList<Extras> extrases;
-    public Pizza(Size size, Dough dough, Topping topping, ArrayList<Extras> extrases) {
-        this.size = size;
-        this.dough = dough;
-        this.topping = topping;
-        this.extrases = extrases;
+    public Pizza(ArrayList<Ingredient> ingredients) {
+        this.ingredients = ingredients;
         this.price=getPrice();
     }
 
     public float getPrice() {
-        price+=dough.getPrice();
-        price+=size.getPrice();
-        price+=topping.getPrice();
-        for (Extras e: extrases){
-            e.getPrice();
+        int tmp=0;
+        for (Ingredient i:ingredients){
+            tmp+=i.getPrice();
         }
-        return price;
+        return tmp;
     }
     public String show(){
-        String extr="";
-        for(Extras e:extrases){
-            extr+=e.getExtr()+", ";
+        String buff="";
+        for (Ingredient i:ingredients){
+            buff+=i.show()+" ";
         }
-        return "Size: "+this.size.getDim()+", Dough: "+(this.dough.isThin()==true?"thin":"fluffy")+", Topping: "+this.topping.getTopp()+", Extras: "+extr+"Price: "+getPrice();
+        buff+=getPrice();
+        return buff;
     }
 }

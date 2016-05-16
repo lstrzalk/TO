@@ -1,7 +1,7 @@
 /**
  * Created by lstrzalk on 15.05.16.
  */
-public class Extras implements Ingredient{
+public class Extras{
     private float price;
     private String extr;
 

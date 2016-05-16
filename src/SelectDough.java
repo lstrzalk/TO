@@ -23,7 +23,7 @@ public class SelectDough extends OrderStep {
         System.out.println("Select pizzas dough");
         int i=0;
         for(Dough d:doughs){
-            System.out.println(i+" dough: "+ (d.isThin()==true?" thin ":"fluffy")+" price: "+d.getPrice());
+            System.out.println(i+" "+ d.showWithPrice());
             i++;
         }
         setDough(in.nextInt() == 0 ? doughs.get(0):doughs.get(1));

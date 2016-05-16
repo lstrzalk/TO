@@ -18,11 +18,15 @@ public class SelectSize extends OrderStep {
         getSize();
     }
 
+    public ArrayList<Size> getSizes() {
+        return sizes;
+    }
+
     public void setSize() {
         System.out.println("Select pizzas dim");
         int i=0;
         for(Size s:sizes){
-            System.out.println(i+" dim: "+s.getDim()+" price: "+s.getPrice());
+            System.out.println(i+" "+s.showWithPrice());
             i++;
         }
         int dim= in.nextInt();

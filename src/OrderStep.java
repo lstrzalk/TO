@@ -15,5 +15,8 @@ public class OrderStep {
         this.stepsOrder.add(new SelectToppings());
         this.stepsOrder.add(new SelectExtras());
     }
+    public void summarize(){
+
+    }
 
 }

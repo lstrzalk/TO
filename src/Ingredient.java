@@ -3,4 +3,6 @@
  */
 public interface Ingredient {
     public float getPrice();
+    public String show();
+    public String showWithPrice();
 }

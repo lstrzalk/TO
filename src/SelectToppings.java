@@ -11,6 +11,10 @@ public class SelectToppings extends OrderStep {
         return topping;
     }
 
+    public ArrayList<Topping> getToppings() {
+        return toppings;
+    }
+
     public void setTopping(Topping topping) {
         this.topping = topping;
     }
@@ -23,7 +27,7 @@ public class SelectToppings extends OrderStep {
         System.out.println("Select topping");
         int i=0;
         for (Topping t:toppings){
-            System.out.println(i+" price: "+t.getPrice()+" topping: "+t.getTopp());
+            System.out.println(i+" "+t.showWithPrice());
             i++;
         }
         setTopping(toppings.get(in.nextInt()));

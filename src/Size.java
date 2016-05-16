@@ -17,4 +17,10 @@ public class Size implements Ingredient {
     public float getPrice() {
         return price;
     }
+    public String show(){
+        return  "Dim "+getDim();
+    }
+    public String showWithPrice(){
+        return "Price "+getPrice()+" Dim "+getDim();
+    }
 }
